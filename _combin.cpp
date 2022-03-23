@@ -17,7 +17,7 @@ int pw(int a, int b, int mod = MOD){
 int f[MAXN+5], fi[MAXN+5];
 void precompute(){
   f[0] = 1;
-  for(int i=1; i<=MAXN; i++) f[i] = mul(f[i], i);
+  for(int i=1; i<=MAXN; i++) f[i] = mul(f[i-1], i);
   fi[MAXN] = pw(f[MAXN], MOD-2);
   for(int i=MAXN-1; i>=0; i--) fi[i] = mul(fi[i+1], i+1);
 }
