@@ -21,7 +21,7 @@ void precompute(){
   fi[MAXN] = pw(f[MAXN], MOD-2);
   for(int i=MAXN-1; i>=0; i--) fi[i] = mul(fi[i+1], i+1);
 }
-int C(int n, int k) { return n > k ? 0 : mul(f[n], mul(fi[n-k], fi[k])); }
+int C(int n, int k) { return n < k ? 0 : mul(f[n], mul(fi[n-k], fi[k])); }
 
 signed main(){
   ios_base :: sync_with_stdio(false);

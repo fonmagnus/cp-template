@@ -9,6 +9,11 @@ int arr[MAXN+5], st[MAXN+5][LOG+1];
 int n;
 
 void build(int n){
+  for(int i=0; i<n; i++){
+    cin >> arr[i];
+    st[i][0] = arr[i];
+  }
+  
   for(int d=1; d<LOG; d++){
     for(int i=0; i + p2(d) - 1 < n; i++){
       st[i][d] = min(st[i][d-1], st[i + p2(d-1)][d-1]);
@@ -18,7 +23,7 @@ void build(int n){
 
 int get(int l, int r){
   int len = log2(r-l+1);
-  return min(st[l][len], st[r-p2(len)][len]);
+  return min(st[l][len], st[r-p2(len)+1][len]);
 }
 
 int main(){
