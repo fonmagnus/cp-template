@@ -40,7 +40,7 @@ inline void update(int x, int d){
 inline int get(int x, int id){
   int ans = 0;
   for(int i=x; i>0; i -= lsone(i)){
-  auto a = upper_bound(tree[i].begin(),tree[i].end(), Node(0, id))-1;
+    auto a = upper_bound(tree[i].begin(),tree[i].end(), Node(0, id))-1;
     ans += a->data;
   }
   return ans;
