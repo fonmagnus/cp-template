@@ -3,6 +3,7 @@ using namespace std;
 # define int long long
 const int MAXN = 1e5;
 
+int n;
 int node[MAXN*4 + 5], lazy[MAXN*4 + 5];
 int arr[MAXN+5];
 
@@ -54,5 +55,23 @@ int get(int l, int r, int id, int from, int to){
 
 signed main(){
   ios_base :: sync_with_stdio(false);
-  
+  cin >> n;
+  for(int i=1; i<=n; i++){
+    int x; cin >> x;
+    update(1, n, 1, i, i, x);
+  }
+
+  int q;
+  cin >> q;
+  while(q--){
+    int t; cin >> t;
+    if(t == 1) {
+      int l, r, x; cin >> l >> r >> x;
+      update(1, n, 1, l, r, x);
+    }
+    else {
+      int l, r; cin >> l >> r;
+      cout << get(1, n, 1, l, r) << endl;
+    }
+  }
 }

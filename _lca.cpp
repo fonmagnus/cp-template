@@ -8,14 +8,16 @@ vector<int> adj[MAXN + 5];
 int depth[MAXN + 5];
 int up[MAXN+5][LOG];
  
-void dfs(int u){
+void dfs(int u, int p = -1){
   for(int v : adj[u]){
+    if(v == p) continue;
     depth[v] = depth[u] + 1;
+    
     up[v][0] = u;
     for(int i = 1; i < LOG; i++){
       up[v][i] = up[up[v][i-1]][i-1];
     }
-    dfs(v);
+    dfs(v, u);
   }
 }
  
